@@ -45,6 +45,9 @@
                <li class="nav-item Nav-items">
                 <a class="nav-link into-Nav">Contact Us</a>
               </li>
+              <li class="nav-item Nav-items">
+                <a href="./dashboards.php" class="nav-link into-Nav">Dashboard</a>
+              </li>
             </ul>
             <div class="d-flex" >
               <a href="./login.php" class="nav-link me-2 nav-item end-nav-items"> <i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>

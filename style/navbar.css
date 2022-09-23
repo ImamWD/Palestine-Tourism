@@ -1,3 +1,10 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /*____________var__________*/
 :root
 {
@@ -92,7 +99,7 @@ nav
 }
 .nav-link
 {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 500;
 }
 .menu

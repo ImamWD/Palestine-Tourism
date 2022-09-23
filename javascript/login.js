@@ -30,7 +30,7 @@ function email_validation(val)
 
 function password_validation(val)
 {
-    let pattern = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+    let pattern = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15}/;
     let passErrors = document.getElementById('pass-error');
     //is required
     if(val.value =="")
