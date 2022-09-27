@@ -15,14 +15,14 @@
     <?php include "navbar.php" ?>
     <div class="container conta">    
       <div class="Dash-div container">
-       <div class="header-div"><h3 class="dash-header">Religious Dashboard</h3></div>
+       <div class="header-div"><h3 class="dash-header">Cultural Dashboard</h3></div>
        <div class="card text-center">
         <ul class="nav nav-tabs">
-        <li class="nav-item ">
-            <a class="nav-link dash-link active" aria-current="page" href="./ReligiousDashboard.php">Religious</a>
+          <li class="nav-item">
+            <a class="nav-link dash-link" aria-current="page" href="./ReligiousDashboard.php">Religious</a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link dash-link" href="./CulturalDashboard.php">Cultural</a>
+            <a class="nav-link dash-link active" href="./CulturalDashboard.php">Cultural</a>
           </li>
           <li class="nav-item">
             <a class="nav-link dash-link" href="./LeisureDashboard.php">Leisure</a>
@@ -43,7 +43,7 @@
         <table class="table">
           <thead>
             <tr>
-            <th scope="col"></th>
+              <th scope="col"></th>
               <th scope="col"></th>
               <th scope="col">Exp</th>
               <th scope="col">Name</th>
@@ -55,6 +55,7 @@
               <th scope="col">Image</th>
               <th scope="col">Edit</th>
               <th scope="col">Delete</th>
+              
             </tr>
           </thead>
           <tbody>
@@ -74,7 +75,8 @@
              $m1 = 30;
              $h2 = 10;
              $m2 = 40;
-             $Explore = true;
+             $Explore = false;
+             
              ?>
             <!--php for loop-->
             <?php
@@ -82,10 +84,10 @@
             $ReligiousDBCount = 10;
             for($i =0;$i < $ReligiousDBCount ; $i = $i+1)
             {
-              ?>
-            <tr>
-            <td><a href="./Reservations.php" class="btn btn-warning btn-table" ><i class="fa-solid fa-list-check"></i></a></td>
-            <td scope="col"><?php echo $i+1 ?></td>
+              ?> 
+            <tr >
+              <td><a href="./Reservations.php" class="btn btn-warning btn-table" ><i class="fa-solid fa-list-check"></i></a></td>
+              <td scope="col"><?php echo $i+1 ?></td>
               <?php if($Explore) {
               echo '<td> <div class="Explore"></div> </td>';
               }else {
@@ -101,7 +103,9 @@
               <td style="width:10%;"><button onclick='EditPlaceForm(<?php echo $PlaceName ; ?>, <?php  echo $PlaceCost; ?>, <?php  echo $Description; ?>, <?php  echo $h1; ?>, <?php  echo $m1; ?>, <?php echo $h2; ?>,<?php  echo $m2; ?> , <?php echo $Explore; ?>)'  class="btn btn-info btn-table"> <i style="color:white ;" class="fa-solid fa-pen"></i></button></td>
               <td style="width:10%;"><button  class="btn btn-danger btn-table"> <i class="fa-solid fa-trash"></i> </button></td>
               <!--for backend dev:-> on click for add ,edit ,description and image buttons you can show all inputs in (ReligiousDashboard.js) file-->
+           
             </tr>
+           
             <?php
             }
             ?>
@@ -115,6 +119,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.3.3/sweetalert2.min.js" integrity="sha512-F3F53+tMh/CBxMQ60GN5R4EiFW7PcuND+9IDC3Qpkwc7SfxgzHigRdUO3+2+mNal2ot3Wp6KR0zx8r8BbsW+Bg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="javascript/jquery-3.6.0.min.js"></script>
     <script src="javascript/bootstrap.bundle.js"></script>
-    <script src="javascript/Dashboard-Pages-js/ReligiousDashboard.js"></script>
+    <script src="javascript/Dashboard-Pages-js/CulturalDashboard.js"></script>
 </body>
 </html>

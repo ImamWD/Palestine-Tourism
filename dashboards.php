@@ -32,7 +32,7 @@
                 <h2 class="Dash-h2" >Cultural Dashboard</h2>
                 <h4><span class="Dash-h4">32</span> Itemes</h4>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis tenetur nostrum quidem minus ipsam eius quo debitis cupiditate explicabo aspernatur, consequuntur necessitatibus. Neque eum illo ullam rem! Tempora, commodi aliquam? </p>
-                <a href="#" class="btn btn-open">Open <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="./CulturalDashboard.php" class="btn btn-open">Open <i class="fa-solid fa-arrow-right"></i></a>
             </div>
         </div>
 
@@ -42,7 +42,7 @@
                 <h2 class="Dash-h2" >Leisure Dashboard</h2>
                 <h4><span class="Dash-h4">15</span> Itemes</h4>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis tenetur nostrum quidem minus ipsam eius quo debitis cupiditate explicabo aspernatur, consequuntur necessitatibus. Neque eum illo ullam rem! Tempora, commodi aliquam? </p>
-                <a href="#" class="btn btn-open">Open <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="./LeisureDashboard.php" class="btn btn-open">Open <i class="fa-solid fa-arrow-right"></i></a>
             
             </div>
         </div>
@@ -53,7 +53,7 @@
                 <h2 class="Dash-h2" >Medical Dashboard</h2>
                 <h4><span class="Dash-h4">68</span> Itemes</h4>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis tenetur nostrum quidem minus ipsam eius quo debitis cupiditate explicabo aspernatur, consequuntur necessitatibus. Neque eum illo ullam rem! Tempora, commodi aliquam? </p>
-                <a href="#" class="btn btn-open">Open <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="./MedicalDashboard.php" class="btn btn-open">Open <i class="fa-solid fa-arrow-right"></i></a>
             
             </div>
         </div>

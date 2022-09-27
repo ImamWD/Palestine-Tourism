@@ -110,6 +110,11 @@ td
     {
         font-size: 10px;
     }
+    .Bbb
+    {
+        font-size: 5px !important;
+
+    }
     .btn-table
     {
         padding: 2px;
@@ -122,4 +127,53 @@ td
 {
     display: flex;
     flex-direction: column;
+}
+.Explore
+{
+    height: 50px;
+    width: 10px;
+    background-color: green;
+}
+.NotExplore
+{
+    height: 50px;
+    width: 10px;
+    background-color: red;
+}
+@media(max-width:990px)
+{
+    .Explore
+    {
+        height: 10px;
+        width: 3px;
+    } 
+    .NotExplore
+   {
+    height: 10px;
+    width: 3px;
+   }
+   .container
+   {
+    max-width:100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+   }
+   table
+   {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+   }
+   .conta
+   {
+    width:100% !important;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+   }
 }

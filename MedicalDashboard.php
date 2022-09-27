@@ -15,11 +15,11 @@
     <?php include "navbar.php" ?>
     <div class="container conta">    
       <div class="Dash-div container">
-       <div class="header-div"><h3 class="dash-header">Religious Dashboard</h3></div>
+       <div class="header-div"><h3 class="dash-header">Medical Dashboard</h3></div>
        <div class="card text-center">
         <ul class="nav nav-tabs">
         <li class="nav-item ">
-            <a class="nav-link dash-link active" aria-current="page" href="./ReligiousDashboard.php">Religious</a>
+            <a class="nav-link dash-link" aria-current="page" href="./ReligiousDashboard.php">Religious</a>
           </li>
           <li class="nav-item ">
             <a class="nav-link dash-link" href="./CulturalDashboard.php">Cultural</a>
@@ -27,8 +27,8 @@
           <li class="nav-item">
             <a class="nav-link dash-link" href="./LeisureDashboard.php">Leisure</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link dash-link" href="./MedicalDashboard.php">Medical</a>
+          <li class="nav-item ">
+            <a class="nav-link dash-link active" href="./MedicalDashboard.php">Medical</a>
           </li>
         </ul>
         <div class="table-div">
@@ -74,7 +74,7 @@
              $m1 = 30;
              $h2 = 10;
              $m2 = 40;
-             $Explore = true;
+             $Explore = false;
              ?>
             <!--php for loop-->
             <?php
@@ -115,6 +115,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.3.3/sweetalert2.min.js" integrity="sha512-F3F53+tMh/CBxMQ60GN5R4EiFW7PcuND+9IDC3Qpkwc7SfxgzHigRdUO3+2+mNal2ot3Wp6KR0zx8r8BbsW+Bg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="javascript/jquery-3.6.0.min.js"></script>
     <script src="javascript/bootstrap.bundle.js"></script>
-    <script src="javascript/Dashboard-Pages-js/ReligiousDashboard.js"></script>
+    <script src="javascript/Dashboard-Pages-js/MedicalDashboard.js"></script>
 </body>
 </html>
