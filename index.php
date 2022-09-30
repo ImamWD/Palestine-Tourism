@@ -36,40 +36,101 @@
     </section>
 
   </header>
-  <section class="container">
-    <h2 style="margin-top:50px">Explore Top Destinations</h2>
-    <div class="Top-Dests">
-        <div  class="Top-Dest">
+  <section >
+    <h2 class="container" style="margin-top:50px">Explore Top Destinations</h2>
+    <div class="Top-Dests container">
+        <div class="row" style="justify-content: space-between;">
+        <div  class="Top-Dest col-4">
             <img style="width:100%" src="images/home-images/p-alpha1.png" />
             <div class="time">
-                <i class="fa-regular fa-clock"></i> 2 Day  & 1 Night
+                <i class="fa-regular fa-clock"></i> <span>8:00</span> to <span>22:30</span>
             </div>
-            <h5>Etiam placerat dictum consequat an Pellentesque habitant morbi.</h5>
+            <h5 calss="place-name">Etiam placerat dictum consequat an Pellentesque habitant morbi.</h5>
+            
+            <h6 class="Place-Type"><span style="color:#ff4838 ;">Type: </span> Leisure</h6>
+            <h6 class="Place-Type"><span style="color:#ff4838 ;">Location: </span> Nablus</h6>
+
             <button class="btn book-btn">BOOK NOW <i class="fa-solid fa-arrow-right"></i></button>
             <h5><span class="price">$79.00</span> per person</h5>
         </div>
-        <div  class="Top-Dest">
+
+        <div  class="Top-Dest col-4">
             <img style="width:100%" src="images/home-images/p-alpha2.png" />
             <div class="time">
-                <i class="fa-regular fa-clock"></i> 8 Day  & 7 Night
+                <i class="fa-regular fa-clock"></i> <span>10:00</span> to <span>20:00</span>
             </div>
             <h5>varius condimentum consequat frin Aenean pretium risus eu.</h5>
+            <h6 class="Place-Type"><span style="color:#ff4838 ;">Type: </span> Leisure</h6>
+            <h6 class="Place-Type"><span style="color:#ff4838 ;">Location: </span> Nablus</h6>
+
             <button class="btn book-btn">BOOK NOW <i class="fa-solid fa-arrow-right"></i></button>
             <h5><span class="price">$259.00</span> per person</h5>
         </div>
-        <div  class="Top-Dest">
+        <div  class="Top-Dest col-4">
             <img style="width:100%" src="images/home-images/p-alpha3.png" />
             <div class="time">
-                <i class="fa-regular fa-clock"></i> 5 Day  & 4 Night
+                <i class="fa-regular fa-clock"></i> <span>8:00</span> to <span>22:30</span>
             </div>
-            <h5>Praesent sed elit mi. In risus nullaam efficitur non elementum eget.</h5>
+            <h5>Praesent sed elit mi. In risus nullaam efficitur non elementum.</h5>
+            <h6 class="Place-Type"><span style="color:#ff4838 ;">Type: </span> Leisure</h6>
+            <h6 class="Place-Type"><span style="color:#ff4838 ;">Location: </span> Nablus</h6>
+
             <button class="btn book-btn">BOOK NOW <i class="fa-solid fa-arrow-right"></i></button>
             <h5><span class="price">$179.00</span> per person</h5>
         </div>
     </div>
+    </div>
+    
+  </section>
+
+  <section >
+    <h2 class="container" style="margin-top:50px">For You</h2>
+    <div class="Top-Dests container">
+        <div class="row" style="justify-content: space-between;">
+        <div  class="Top-Dest col-4">
+            <img style="width:100%" src="images/home-images/p-alpha1.png" />
+            <div class="time">
+                <i class="fa-regular fa-clock"></i> <span>8:00</span> to <span>22:30</span>
+            </div>
+            <h5 calss="place-name">Etiam placerat dictum consequat an Pellentesque habitant morbi.</h5>
+            
+            <h6 class="Place-Type"><span style="color:#ff4838 ;">Type: </span> Leisure</h6>
+            <h6 class="Place-Type"><span style="color:#ff4838 ;">Location: </span> Nablus</h6>
+
+            <button class="btn book-btn">BOOK NOW <i class="fa-solid fa-arrow-right"></i></button>
+            <h5><span class="price">$79.00</span> per person</h5>
+        </div>
+
+        <div  class="Top-Dest col-4">
+            <img style="width:100%" src="images/home-images/p-alpha2.png" />
+            <div class="time">
+                <i class="fa-regular fa-clock"></i> <span>10:00</span> to <span>20:00</span>
+            </div>
+            <h5>varius condimentum consequat frin Aenean pretium risus eu.</h5>
+            <h6 class="Place-Type"><span style="color:#ff4838 ;">Type: </span> Leisure</h6>
+            <h6 class="Place-Type"><span style="color:#ff4838 ;">Location: </span> Nablus</h6>
+
+            <button class="btn book-btn">BOOK NOW <i class="fa-solid fa-arrow-right"></i></button>
+            <h5><span class="price">$259.00</span> per person</h5>
+        </div>
+        <div  class="Top-Dest col-4">
+            <img style="width:100%" src="images/home-images/p-alpha3.png" />
+            <div class="time">
+                <i class="fa-regular fa-clock"></i> <span>8:00</span> to <span>22:30</span>
+            </div>
+            <h5>Praesent sed elit mi. In risus nullaam efficitur non elementum.</h5>
+            <h6 class="Place-Type"><span style="color:#ff4838 ;">Type: </span> Leisure</h6>
+            <h6 class="Place-Type"><span style="color:#ff4838 ;">Location: </span> Nablus</h6>
+
+            <button class="btn book-btn">BOOK NOW <i class="fa-solid fa-arrow-right"></i></button>
+            <h5><span class="price">$179.00</span> per person</h5>
+        </div>
+    </div>
+    </div>
+    
   </section>
   <?php include "footer.php" ?>
-      <script src="javascript/jquery-3.6.0.min.js"></script>
+     <script src="javascript/jquery-3.6.0.min.js"></script>
      <script src="javascript/bootstrap.bundle.js"></script>
      <script src="javascript/home.js"></script>
 </body>

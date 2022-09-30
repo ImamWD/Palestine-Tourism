@@ -31,13 +31,13 @@
                 <ul class="dropdown-menu menu" >
                   <li class="list-item"><i class="fa-solid fa-circle"></i> <a class="dropdown-item dropdown-item1" href="./login.php">Login Page</a></li>
                   <li class="list-item"><i class="fa-solid fa-circle"></i> <a class="dropdown-item dropdown-item1" href="./index.php">Home Page</a></li>
-                  <li class="list-item"><i class="fa-solid fa-circle"></i> <a class="dropdown-item dropdown-item1" href="#"> Tours Page</a></li>
-                  <li class="list-item"><i class="fa-solid fa-circle"></i> <a class="dropdown-item dropdown-item1" href="#"> Blogs Page</a></li> 
-                  <li class="list-item"><i class="fa-solid fa-circle"></i> <a class="dropdown-item dropdown-item1" href="#"> Contact Us Page</a></li>
+                  <li class="list-item"><i class="fa-solid fa-circle"></i> <a class="dropdown-item dropdown-item1"  href="./ReligiousTours.php">Tours Page</a></li>
+                  <li class="list-item"><i class="fa-solid fa-circle"></i> <a class="dropdown-item dropdown-item1" href="#">Blogs Page</a></li> 
+                  <li class="list-item"><i class="fa-solid fa-circle"></i> <a class="dropdown-item dropdown-item1" href="#">Contact Us Page</a></li>
                 </ul>
               </li>
               <li class="nav-item Nav-items">
-                <a class="nav-link into-Nav">Tours</a>
+                <a class="nav-link into-Nav" href="./ReligiousTours.php">Tours</a>
               </li>
               <li class="nav-item Nav-items">
                 <a class="nav-link into-Nav">Blogs</a>
