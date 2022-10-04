@@ -21,9 +21,6 @@
               <li class="nav-item Nav-items">
                 <a class="nav-link into-Nav" aria-current="page" href="index.php">Home</a>
               </li>
-              <li class="nav-item Nav-items">
-                <a class="nav-link into-Nav" href="#">About Us</a>
-              </li>
               <li class="nav-item  Nav-items Pages">
                 <a class="nav-link into-Nav"  href="#">
                     Pages  <i class="fa-solid fa-plus plus-icon"></i>
@@ -32,7 +29,7 @@
                   <li class="list-item"><i class="fa-solid fa-circle"></i> <a class="dropdown-item dropdown-item1" href="./login.php">Login Page</a></li>
                   <li class="list-item"><i class="fa-solid fa-circle"></i> <a class="dropdown-item dropdown-item1" href="./index.php">Home Page</a></li>
                   <li class="list-item"><i class="fa-solid fa-circle"></i> <a class="dropdown-item dropdown-item1"  href="./ReligiousTours.php">Tours Page</a></li>
-                  <li class="list-item"><i class="fa-solid fa-circle"></i> <a class="dropdown-item dropdown-item1" href="#">Blogs Page</a></li> 
+                  <li class="list-item"><i class="fa-solid fa-circle"></i> <a class="dropdown-item dropdown-item1" href="./BlogsHome.php">Blogs Page</a></li> 
                   <li class="list-item"><i class="fa-solid fa-circle"></i> <a class="dropdown-item dropdown-item1" href="#">Contact Us Page</a></li>
                 </ul>
               </li>
@@ -40,10 +37,28 @@
                 <a class="nav-link into-Nav" href="./ReligiousTours.php">Tours</a>
               </li>
               <li class="nav-item Nav-items">
-                <a class="nav-link into-Nav">Blogs</a>
+                <a class="nav-link into-Nav" href="./BlogsHome.php">Blogs</a>
               </li>
-               <li class="nav-item Nav-items">
-                <a class="nav-link into-Nav">Contact Us</a>
+              <li class="nav-item  Nav-items Contact">
+                <a class="nav-link into-Nav"  href="#">
+                    Contact us  <i class="fa-solid fa-plus plus-icon"></i>
+                </a>
+                <ul class="dropdown-menu menu1"  style=" width: 52%; height:100vh ; border-radius: 0; border:0;">
+                
+                <li class="list-item" style="width:100% ; margin: auto; display:flex ; flex-direction: column;">
+                  <h1 style="color:#ff4838;"> Contact Us</h1>
+                  <form class="contact-form container" method="POST" style="width:100%;">
+                    <label>Message Title</label>
+                    <input type="text" name="titel" class="form-control mb-1"/>
+                    <label>Your Name</label>
+                    <input type="text" name="Name" class="form-control mb-1"/>
+                    <label>Message</label>
+                    <textarea style="height:30vh" name="msg" class="form-control mb-1"> </textarea>
+                      <input type="submit" value="Send" class="btn  d-block book" name="send">
+                  </form>
+                </li>
+                
+              </ul>
               </li>
               <li class="nav-item Nav-items">
                 <a href="./dashboards.php" class="nav-link into-Nav">Dashboard</a>

@@ -112,7 +112,7 @@
       </section>
 
       <div class="search-city">
-        <h5 style="display:inline-block ;">Explore Place</h5>
+        <h5 style="display:inline-block">Explore Place</h5>
         
       </div>
 

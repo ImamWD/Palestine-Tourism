@@ -22,18 +22,17 @@
             </div>
             <div class="col-3 footer-content">
                 <h3 class="h3-footer" >Quick Link</h3>
-                <a class="quick-link" href="#">Home</a>
-                <a class="quick-link" href="#">About us</a>
-                <a class="quick-link" href="#">Tours</a>
-                <a class="quick-link" href="#">Blogs</a>
+                <a class="quick-link" href="./index.php">Home</a>
+                <a class="quick-link" href="./ReligiousTours.php">Tours</a>
+                <a class="quick-link" href="./BlogsHome.php">Blogs</a>
                 <a class="quick-link" href="#">Contact us</a>
             </div>
             <div class="col-3 footer-content">
                 <h3 class="h3-footer">Tour Type</h3>
-                <a class="quick-link" href="#">Religious</a>
-                <a class="quick-link" href="#">Cultural</a>
-                <a class="quick-link" href="#">Leisure</a>
-                <a class="quick-link" href="#">Medical</a>
+                <a class="quick-link" href="./ReligiousTours.php">Religious</a>
+                <a class="quick-link" href="./CulturalTours.php">Cultural</a>
+                <a class="quick-link" href="./LeisureTours.php">Leisure</a>
+                <a class="quick-link" href="./MedicalTours.php">Medical</a>
                 
             </div>
             <div lass="col-3 footer-content" style="width:25%">
