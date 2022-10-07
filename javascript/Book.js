@@ -1,3 +1,3 @@
-$(".show").click(function(){
+$(".show1").click(function(){
     $(".form-reserve").toggle(300);
   });
