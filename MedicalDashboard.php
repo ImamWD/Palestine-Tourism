@@ -1,3 +1,10 @@
+<?php 
+session_start(); 
+if(!isset($_SESSION['admin']))
+{
+    header("Location:./login.php");
+}
+?>
 <!-- pleace make sure your PC to connict for network -->
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +18,11 @@
     <link rel="stylesheet" href="style/bootstrap.min.css">
     <link rel="stylesheet" href="style/Dashboard-pages-css/ReligiousDashboard.css">
 </head>
-<body>
+<body <?php if(isset($_GET['err'])){?>
+   onload="Error('<?php echo $_GET['err'];  ?>')"<?php } ?>
+   <?php if(isset($_GET['done'])) {?>
+   onload="Done('<?php echo $_GET['done']; ?>')" <?php } ?>>
+
     <?php include "navbar.php" ?>
     <div class="container conta">    
       <div class="Dash-div container">
@@ -87,9 +98,9 @@
             <td><a href="./Reservations.php" class="btn btn-warning btn-table" ><i class="fa-solid fa-list-check"></i></a></td>
             <td scope="col"><?php echo $i+1 ?></td>
               <?php if($Explore) {
-              echo '<td> <div class="Explore"></div> </td>';
+              echo '<td> <div class="bg-success Explore"></div> </td>';
               }else {
-              echo'<td> <div class="NotExplore"></div> </td>';
+              echo'<td> <div class="bg-danger NotExplore"></div> </td>';
               }?>
               <td scope="col"><?php echo $PlaceNameST ?></td>
               <td scope="col"><?php echo  $PlaceCost ?> <span style="color:#ff4838 ;">$</span></td>
@@ -97,7 +108,7 @@
               <td scope="col"><?php echo $h1 ?>:<?php echo $m1 ?></td>
               <td scope="col"><?php echo $h2 ?>:<?php echo $m2 ?></td>
               <td style="margin:auto;"><button onclick='ShowDesc(<?php echo$Description ?> , <?php echo $PlaceName ?>)'  class="btn btn-secondary btn-table" ><i class="fa-solid fa-file-medical"></i></button></td>
-              <td style="margin:auto;"><button onclick='ShowImage(<?php echo $Path ?> , <?php echo $PlaceName ?>)' class="btn btn-secondary btn-table" ><i class="fa-regular fa-image"></i></button></td>
+              <td style="margin:auto;"><button onclick='ShowImage("./backendfiles/Placeuploads/IMG-634dc32f8429b1.58117383.png" , <?php echo $PlaceName ?>)' class="btn btn-secondary btn-table" ><i class="fa-regular fa-image"></i></button></td>
               <td style="width:10%;"><button onclick='EditPlaceForm(<?php echo $PlaceName ; ?>, <?php  echo $PlaceCost; ?>, <?php  echo $Description; ?>, <?php  echo $h1; ?>, <?php  echo $m1; ?>, <?php echo $h2; ?>,<?php  echo $m2; ?> , <?php echo $Explore; ?>)'  class="btn btn-info btn-table"> <i style="color:white ;" class="fa-solid fa-pen"></i></button></td>
               <td style="width:10%;"><button  class="btn btn-danger btn-table"> <i class="fa-solid fa-trash"></i> </button></td>
               <!--for backend dev:-> on click for add ,edit ,description and image buttons you can show all inputs in (ReligiousDashboard.js) file-->
@@ -116,5 +127,6 @@
     <script src="javascript/jquery-3.6.0.min.js"></script>
     <script src="javascript/bootstrap.bundle.js"></script>
     <script src="javascript/Dashboard-Pages-js/MedicalDashboard.js"></script>
+    <script src="javascript/Dashboard-Pages-js/Error.js"></script>
 </body>
 </html>

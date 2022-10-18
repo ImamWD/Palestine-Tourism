@@ -151,3 +151,16 @@ nav
     }
     
 }
+.prof
+{
+    color: var(--main-color);
+}
+.profile-img1
+{
+    width: 40px;
+    border-radius: 50%;
+}
+.PR
+{
+    border: 1px solid #ff4838;
+}

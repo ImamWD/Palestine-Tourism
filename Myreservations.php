@@ -1,3 +1,10 @@
+<?php 
+session_start(); 
+if(!isset($_SESSION['customer']))
+{
+    header("Location:./login.php");
+}
+?>
 <!-- pleace make sure your PC to connict for network -->
 <!DOCTYPE html>
 <html lang="en">

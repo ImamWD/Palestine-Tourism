@@ -1,3 +1,10 @@
+<?php  
+session_start();
+if(isset($_SESSION['admin']) || isset($_SESSION['customer']))
+{
+  header("Location: ./index.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,9 +22,17 @@
 <div class="signup-background">
    <div class="signup-content">
     <h1 class="signup-header">Sign Up</h1>
-    <form >
+    <?php
+      
+      if(isset($_SESSION['Error']))
+      {
+        echo "<h5 class='p-3 mb-2 bg-danger text-white' style='color:white; width:100%; text-align: center !important;'>"; echo $_SESSION['Error']; echo "</h5>";
+        unset($_SESSION['Error']);
+      }
+      ?>
+    <form action="./backendfiles/handlesignup.php" >
         <label class="signup-label">Full Name</label>
-        <input onkeyup="Name_validation(this)" class="input-group-text form-control signup-input" type="email" name="useremail" placeholder="Your Name"/>
+        <input onkeyup="Name_validation(this)" class="input-group-text form-control signup-input" type="text" name="username" placeholder="Your Name"/>
         <p id="name-error"></p>
 
         <label class="signup-label">Email</label>
@@ -29,25 +44,21 @@
         <p id="pass-error"></p>
 
         <label class="signup-label">Live In</label>
-        <select class="form-select" aria-label="Default select example">
-            <option selected value="1">Jerusalem</option>
-            <option value="2">Nablus</option>
-            <option value="3">Jenin</option>
-            <option value="4">Tulkarm</option>
-            <option value="5">Hebron</option>
-            <option value="6">Bethlehem</option>
-            <option value="7">Ramallah</option>
-            <option value="8">Jericho</option>
-            <option value="9">Qalqilya</option>
-            <option value="10">Salfit</option> 
-            <option value="9">Tubas</option>
+        <select class="form-select" aria-label="Default select example" name="userlocation">
+            <option selected value="Jerusalem">Jerusalem</option>
+            <option value="Nablus">Nablus</option>
+            <option value="Jenin">Jenin</option>
+            <option value="Tulkarm">Tulkarm</option>
+            <option value="Hebron">Hebron</option>
+            <option value="Bethlehem">Bethlehem</option>
+            <option value="Ramallah">Ramallah</option>
+            <option value="Jericho">Jericho</option>
+            <option value="Qalqilya">Qalqilya</option>
+            <option value="Salfit">Salfit</option> 
+            <option value="Tubas">Tubas</option>
           </select>
-
-        Female <input type="radio" name="useremail" />
-        Male <input type="radio" name="useremail" />
-
-        
         <input id="js-btn" class="btn btn-primary signup-btn disabled" type="submit" name="send" value="Sign up" />
+      
     </form>
     <p>If you have created an account <a href="./login.php" class="go-signup">Login?</a></p>
    </div>

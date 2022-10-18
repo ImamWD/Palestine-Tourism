@@ -71,6 +71,8 @@ td
     height: 50px;
     background-color: var(--main-color);
     display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
     margin-top: 30px;
 }
 .search-submit
@@ -92,13 +94,19 @@ td
 }
 .search-form
 {
-    width: 70%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+.select-form
+{
+    width: 30%;
     display: flex;
     align-items: center;
 }
 .add-new-div
 {
-    width: 30%;
+    width: 10%;
     display: flex;
     align-items: center;
     justify-content: flex-end
@@ -129,27 +137,29 @@ td
 }
 .Explore
 {
-    height: 50px;
-    width: 10px;
-    background-color: green;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    margin: auto;
 }
 .NotExplore
 {
-    height: 50px;
-    width: 10px;
-    background-color: red;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    margin: auto;
 }
 @media(max-width:990px)
 {
     .Explore
     {
-        height: 10px;
-        width: 3px;
+        height: 5px;
+        width: 5px;
     } 
     .NotExplore
    {
-    height: 10px;
-    width: 3px;
+    height: 5px;
+    width:  5px;
    }
    .container
    {

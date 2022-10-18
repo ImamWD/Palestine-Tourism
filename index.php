@@ -1,3 +1,4 @@
+<?php session_start();  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,16 +27,47 @@
         <div class="into-header col-12">
         <p id="auto-write"></p>   
         <p id="auto-write-Tourism"></p>
-       
+       <?php
+       if(isset($_SESSION['customer']))
+       { 
+        
+        include "backendfiles/conniction.php";
+        $query = "SELECT name from customers where id=" . $_SESSION['customer'] .";";
+        $result = mysqli_query($conn , $query);
+        $row = $result->fetch_assoc();
+        $Cu_Name = $row['name'];
+       ?>
+        <a href="./ReligiousTours.php" class="btn login-btn">GO TO TOURS</a>
+        <h3 class="mt-5 w-100" style="color:white; text-align:center "> Welcome<span style="color:#ff4838"> <?php echo $Cu_Name; ?> </span> to the Palestine Tourism </h3>
+
+      <?php }
+       elseif(isset($_SESSION['admin']))
+       { ?>
+       <?php
+         include "backendfiles/conniction.php";
+        $query = "SELECT name from admins where id=" . $_SESSION['admin'] .";";
+        $result = mysqli_query($conn , $query);
+        $row = $result->fetch_assoc();
+        $Ad_Name = $row['name'];
+       ?>
+        <a href="./dashboards.php" class="btn login-btn">GO TO DASHS</a>
+        <h5 class="mt-5 w-100" style="color:white; text-align:center"> welcome <span style="color:#ff4838"> <?php echo $Ad_Name; ?> </span> Admin go to Dashpoards for to Manage website</h6>
+       <?php }
+       else
+       { ?>
         <a href="./login.php" class="btn login-btn">Login</a>
         <a  href="./signup.php" class="btn signup-btn">Sign up</a>
-        
-            </div>
+        <?php } ?>
+        </div>
            
         </div>
     </section>
 
   </header>
+  <?php 
+  if(isset($_SESSION['customer']))
+  {
+    ?>
   <section >
     <h2 class="container" style="margin-top:50px; margin-bottom: 50px;">Explore Top Destinations</h2>
     
@@ -234,9 +266,10 @@
         </div>
     </div>
     </div>
-    
   </section>
-  <?php include "footer.php" ?>
+  <?php 
+  } 
+  include "footer.php" ?>
      <script src="javascript/jquery-3.6.0.min.js"></script>
      <script src="javascript/bootstrap.bundle.js"></script>
      <script src="javascript/home.js"></script>

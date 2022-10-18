@@ -5,65 +5,65 @@ async function newPlaceForm()
         showCancelButton: false, 
         showConfirmButton: false ,
         html:  `
-        <form method="GET" class="Add-form">
+        <form enctype="multipart/form-data" method="POST" action="./backendfiles/addplace.php?pid=3" class="Add-form">
         <label style = "display:flex"> <p style="width:25%; margin-top: revert;">Name</p>
           <div style="width:100%">
-        <input name="AddReName" placeholder="Place Name" onkeyup="NameValidation(this)"  type="text" id="swal-input1" class="form-control  swal2-input " style="width:80%"/>
+        <input name="name" placeholder="Place Name" onkeyup="NameValidation(this)"  type="text" id="swal-input1" class="form-control  swal2-input " style="width:80%"/>
           <p id="NameError" style="color:red; font-size:11px; margin:0;     font-weight: 500;"></p>   
           </div> 
           </label>
             
           <label style = "display:flex"> <p style="width:25%; margin-top: revert;">Price</p>
           <div style="width:100%">     
-          <input name="AddReCost" placeholder="Place Price" onkeyup="CostValidation(this)" type="number" id="swal-input2" class="form-control swal2-input" style="width:80%"/>
+          <input name="cost" placeholder="Place Price" onkeyup="CostValidation(this)" type="number" id="swal-input2" class="form-control swal2-input" style="width:80%"/>
           <p id="CostError" style="color:red; font-size:11px; margin:0;     font-weight: 500;"></p>   
           </div> 
           </label>
           <label style = "display:flex"> <p style="width:25%; margin-top: revert;">Location</p>
           <div style="width:100%">  
-          <select id="swal-input6" class="form-control swal2-input" style="width:80%">
-          <option selected value="1">Jerusalem</option>
-          <option value="2">Nablus</option>
-          <option value="3">Jenin</option>
-          <option value="4">Tulkarm</option>
-          <option value="5">Hebron</option>
-          <option value="6">Bethlehem</option>
-          <option value="7">Ramallah</option>
-          <option value="8">Jericho</option>
-          <option value="9">Qalqilya</option>
-          <option value="10">Salfit</option> 
-          <option value="9">Tubas</option>
+          <select name="city" id="swal-input6" class="form-control swal2-input" style="width:80%">
+          <option selected value="Jerusalem">Jerusalem</option>
+          <option value="Nablus">Nablus</option>
+          <option value="Jenin">Jenin</option>
+          <option value="Tulkarm">Tulkarm</option>
+          <option value="Hebron">Hebron</option>
+          <option value="Bethlehem">Bethlehem</option>
+          <option value="Ramallah">Ramallah</option>
+          <option value="Jericho">Jericho</option>
+          <option value="Qalqilya">Qalqilya</option>
+          <option value="Salfit">Salfit</option> 
+          <option value="Tubas">Tubas</option>
           </select>
        </div> 
        </label>
                 
                  <label style = "display:flex"> <p style="width:25%; margin-top: revert;">Description</p>
                  <div style="width:100%">    
-                 <input name="AddReDesc" placeholder="Place Description" onkeyup="DescValidation(this)" type="text" id="swal-input3" class="form-control swal2-input" style="width:80%"/>
+                 <input name="desc" placeholder="Place Description" onkeyup="DescValidation(this)" type="text" id="swal-input3" class="form-control swal2-input" style="width:80%"/>
                  <p id="DescError" style="color:red; font-size:11px; margin:0;     font-weight: 500;"></p>   
                  </div>  
                  </label>
                   
                   <label style = "display:flex"> <p style="width:25%; margin-top: revert;">Image</p>
-                 <input name="AddReImage" placeholder="Place Image" type="file" id="swal-input4" class="form-control swal2-input" style="width:80%"  onchange="FileValidation(this)"/>
+                 <input type="file" name="my_image" placeholder="Place Image"  id="swal-input4" class="form-control swal2-input" style="width:80%"  onchange="FileValidation(this)"/>
                  </label>
                  
                  <label style = "display:flex"> 
                     <p style="width:25%; margin-top: revert;">Start</p>
-                    <input name="AddReh1" placeholder="hours" onkeyup="hValidation(this,0)" type="number" id="swal-input5" class="form-control swal2-input" style="width:30%"/>
+                    <input name="h1" placeholder="hours" onkeyup="hValidation(this,0)" type="number" id="swal-input5" class="form-control swal2-input" style="width:30%"/>
                     <p style="width:5%; margin-top: revert; margin-right: 10px; font-weight: bold;">:</p>
-                    <input name="AddRem1" placeholder="min" onkeyup="mValidation(this,0)"  type="number" id="swal-input7" class="form-control swal2-input" style="width:30%"/>
+                    <input name="m1" placeholder="min" onkeyup="mValidation(this,0)"  type="number" id="swal-input7" class="form-control swal2-input" style="width:30%"/>
                 </label>
 
                 <label style = "display:flex"> 
                     <p style="width:25%; margin-top: revert;">Close</p>
-                    <input name="AddReh2" placeholder="hours" onkeyup="hValidation(this,1)" type="number" id="swal-input5" class="form-control swal2-input" style="width:30%"/>
+                    <input name="h2" placeholder="hours" onkeyup="hValidation(this,1)" type="number" id="swal-input5" class="form-control swal2-input" style="width:30%"/>
                     <p style="width:5%; margin-top: revert; margin-right: 10px; font-weight: bold;">:</p>
-                    <input name="AddRem2" placeholder="min" onkeyup="mValidation(this,1)"  type="number" id="swal-input7" class="form-control swal2-input" style="width:30%"/>
+                    <input name="m2" placeholder="min" onkeyup="mValidation(this,1)"  type="number" id="swal-input7" class="form-control swal2-input" style="width:30%"/>
                 </label>
 
                 <label style = "display:flex"> <p style="width:25%; margin-top: revert;">Explore</p>
-                <input name="Explore" type="checkbox" />
+                <input name="explore" type="checkbox" value="1" />
                 </label>
 
                 <input id="js-btn" type="submit" name="RelSub" value="Add Place" class="btn btn-primary disabled" style="width: 100px; margin-right: auto;  margin-left: auto; margin-top:40px;"/>

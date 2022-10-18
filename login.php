@@ -1,3 +1,10 @@
+<?php  
+session_start();
+if(isset($_SESSION['admin']) || isset($_SESSION['customer']))
+{
+  header("Location: ./index.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +22,23 @@
 <div class="login-background">
    <div class="login-content">
     <h1 class="login-header">Login</h1>
-    <form >
+    <?php
+      
+      if(isset($_SESSION['successsignup']))
+      {
+        echo "<h5 class='p-3 mb-2 bg-success text-white' style='color:white; width:100%; text-align: center !important;'>"; echo $_SESSION['successsignup']; echo "</h5>";
+        unset($_SESSION['successsignup']);
+      }
+      ?>
+       <?php
+      
+      if(isset($_SESSION['loginerror']))
+      {
+        echo "<h5 class='p-3 mb-2 bg-danger text-white' style='color:white; width:100%; text-align: center !important;'>"; echo $_SESSION['loginerror']; echo "</h5>";
+        unset($_SESSION['loginerror']);
+      }
+      ?>
+    <form action="./backendfiles/handlelogin.php" method="POST">
         <label class="login-label">Email</label>
         <input onkeyup="email_validation(this)" class="input-group-text form-control login-input" type="email" name="useremail" placeholder="Your Email"/>
         <p id="email-error"></p>

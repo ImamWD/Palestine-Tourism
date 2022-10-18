@@ -22,18 +22,50 @@
             </div>
             <div class="col-3 footer-content">
                 <h3 class="h3-footer" >Quick Link</h3>
-                <a class="quick-link" href="./index.php">Home</a>
+                <?php
+                if(isset($_SESSION['customer']))
+                { ?>
+                <a class="quick-link"  href="./index.php">Home</a>
                 <a class="quick-link" href="./ReligiousTours.php">Tours</a>
                 <a class="quick-link" href="./BlogsHome.php">Blogs</a>
-                <a class="quick-link" href="#">Contact us</a>
+                <a class="quick-link Contact" href="#">Contact us</a>
+                <?php }
+                else
+                { ?>
+                 <a class="quick-link" href="./index.php">Home</a>
+                <a class="quick-link" href="./index.php">Tours</a>
+                <a class="quick-link" href="./index.php">Blogs</a>
+                <a class="quick-link" href="index.php">Contact us</a>
+                <?php } ?>
             </div>
             <div class="col-3 footer-content">
                 <h3 class="h3-footer">Tour Type</h3>
+                <?php
+                if(isset($_SESSION['customer']))
+                { ?>
                 <a class="quick-link" href="./ReligiousTours.php">Religious</a>
                 <a class="quick-link" href="./CulturalTours.php">Cultural</a>
                 <a class="quick-link" href="./LeisureTours.php">Leisure</a>
                 <a class="quick-link" href="./MedicalTours.php">Medical</a>
+                <?php 
+                }
+                elseif(isset($_SESSION['admin']))
+                {?> 
                 
+                <a class="quick-link" href="./ReligiousDashboard.php">Religious</a>
+                <a class="quick-link" href="./CulturalDashboard.php">Cultural</a>
+                <a class="quick-link" href="./LeisureDashboard.php">Leisure</a>
+                <a class="quick-link" href="./MedicalDashboard.php">Medical</a>
+                <?php 
+                }
+                else { ?>
+                <a class="quick-link" href="./login.php">Religious</a>
+                <a class="quick-link" href="./login.php">Cultural</a>
+                <a class="quick-link" href="./login.php">Leisure</a>
+                <a class="quick-link" href="./login.php">Medical</a>
+                
+
+                <?php } ?>
             </div>
             <div lass="col-3 footer-content" style="width:25%">
                 <h3 class="h3-footer">Gallery</h3>
@@ -57,5 +89,6 @@
             <p class="bottom-footer-para" style="color:white ;">Terms & Condition <span class="vir-line"> | </span>Privacy Policy</p>
         </div>
     </footer>
+    <script src="javascript/navbar.js"></script>
 </body>
 </html>

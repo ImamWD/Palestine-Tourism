@@ -84,7 +84,13 @@ body
     font-size: 30px;
     font-weight: 500;
     transition: all .6s;
-    margin-right: 40px;
+}
+@media (max-width:991px)
+{
+    .login-btn
+    {
+        width: 50%;
+    }
 }
 .login-btn:hover
 {
