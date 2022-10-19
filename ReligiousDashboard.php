@@ -42,17 +42,13 @@ if(!isset($_SESSION['admin']))
             <a class="nav-link dash-link" href="./MedicalDashboard.php">Medical</a>
           </li>
         </ul>
+
         <div class="table-div">
-          <form method="POST" class="search-form">
-            <input type="search" name="Research" class="form-control search-input" placeholder="Enter item name"/>
-            <input type="submit" class="btn search-submit" value="Search" name="sib"/>
-          </form>
           <form action="./ReligiousDashboard.php" method="POST" class="select-form">
           <select  name="selector" class="form-control me-2">
           <option selected value="1">Explore</option>
           <option value="2">-Explore</option>
           <option value="3">Name</option>
-          <option value="4">-Name</option>
           <option value="5">Cost</option>
           <option value="6">-Cost</option>
           <option value="7">Start Time</option>
@@ -85,6 +81,7 @@ if(!isset($_SESSION['admin']))
           </thead>
           <tbody>
           <?php
+          $PlaceType = "Religious";
            if(isset($_POST['selector']))
            {
                $sl = $_POST['selector'];
@@ -98,11 +95,7 @@ if(!isset($_SESSION['admin']))
                }
                elseif($sl == 3)
                {
-                   $order ="-name";
-               }
-               elseif($sl == 4)
-               {
-                   $order = "name";
+                   $order ="name";
                }
                elseif($sl ==5)
                {
@@ -128,7 +121,6 @@ if(!isset($_SESSION['admin']))
                {
                   $order = "closetime";
                }
-               $PlaceType = "Religious";
                $query = "SELECT * from places where type = '" . $PlaceType . "' ORDER BY ". $order .";";
                $result = mysqli_query($conn,$query);
                $Arr = mysqli_fetch_all($result);

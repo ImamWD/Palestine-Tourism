@@ -42,10 +42,22 @@ if(!isset($_SESSION['admin']))
             <a class="nav-link dash-link" href="./MedicalDashboard.php">Medical</a>
           </li>
         </ul>
+
+
         <div class="table-div">
-          <form method="POST" class="search-form">
-            <input type="search" name="Research" class="form-control search-input" placeholder="Enter item name"/>
-            <input type="submit" class="btn search-submit" value="Search" name="sib"/>
+          <form action="./CulturalDashboard.php" method="POST" class="select-form">
+          <select  name="selector" class="form-control me-2">
+          <option selected value="1">Explore</option>
+          <option value="2">-Explore</option>
+          <option value="3">Name</option>
+          <option value="5">Cost</option>
+          <option value="6">-Cost</option>
+          <option value="7">Start Time</option>
+          <option value="8">-Start Time</option>
+          <option value="9">Close Time</option>
+          <option value="10">-Close Time</option>
+          </select>
+            <input type="submit" class="btn search-submit" value="show" name="sub"/>
           </form>
           <div class="add-new-div">
             <button onclick="newPlaceForm()" class="btn btn-success me-1" ><i class="fa-regular fa-square-plus"></i></button>
@@ -54,7 +66,7 @@ if(!isset($_SESSION['admin']))
         <table class="table">
           <thead>
             <tr>
-              <th scope="col"></th>
+            <th scope="col"></th>
               <th scope="col"></th>
               <th scope="col">Exp</th>
               <th scope="col">Name</th>
@@ -66,61 +78,88 @@ if(!isset($_SESSION['admin']))
               <th scope="col">Image</th>
               <th scope="col">Edit</th>
               <th scope="col">Delete</th>
-              
             </tr>
           </thead>
           <tbody>
-           
-            <?php 
-            //for image
-             $Path = "\"./images/home-images/p-alpha1.png\""; 
-             // get your place image in DB and you can define array for to get all images.
-             $PlaceName = "\"Abbbbb\""; // test php variable for js
-             $PlaceNameST = "Abbbbb";
-             //for description
-             $Description = "\"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus veniam veritatis ab nostrum dicta debitis nisi alias, sit quia asperiores est totam mollitia ex soluta iusto deleniti quisquam ad amet \"";
-             // for Edit function 
-             $PlaceCost = 300;
-             $Location = "Nablus";
-             $h1 = 5;
-             $m1 = 30;
-             $h2 = 10;
-             $m2 = 40;
-             $Explore = false;
-             
-             ?>
-            <!--php for loop-->
-            <?php
-            //ReligiousDB row count
-            $ReligiousDBCount = 10;
-            for($i =0;$i < $ReligiousDBCount ; $i = $i+1)
+          <?php
+          $PlaceType = "Cultural";
+           if(isset($_POST['selector']))
+           {
+               $sl = $_POST['selector'];
+               if($sl == 1)
+               {
+                   $order= "-explore";
+               }
+               elseif($sl ==2)
+               {
+                   $order ="explore";
+               }
+               elseif($sl == 3)
+               {
+                   $order ="name";
+               }
+               elseif($sl ==5)
+               {
+                   $order = "-cost";
+               }
+               elseif($sl == 6)
+               {
+                   $order = "cost";
+               }
+               elseif($sl ==7)
+               {
+                   $order = "-starttime";
+               }
+               elseif($sl ==8)
+               {
+                   $order = "starttime";
+               }
+               elseif($sl ==9)
+               {
+                   $order = "-closetime";
+               }
+               else
+               {
+                  $order = "closetime";
+               }
+               $query = "SELECT * from places where type = '" . $PlaceType . "' ORDER BY ". $order .";";
+               $result = mysqli_query($conn,$query);
+               $Arr = mysqli_fetch_all($result);
+               $co=0;
+           }
+           else
+           {
+            include "./backendfiles/conniction.php";
+            include "./backendfiles/orderby.php";
+           }
+          foreach($Arr as $value)
             {
-              ?> 
-            <tr >
-              <td><a href="./Reservations.php" class="btn btn-warning btn-table" ><i class="fa-solid fa-list-check"></i></a></td>
-              <td scope="col"><?php echo $i+1 ?></td>
-              <?php if($Explore) {
-              echo '<td> <div class="bg-success Explore"></div> </td>';
-              }else {
-              echo'<td> <div class="bg-danger NotExplore"></div> </td>';
-              }?>
-              <td scope="col"><?php echo $PlaceNameST ?></td>
-              <td scope="col"><?php echo  $PlaceCost ?> <span style="color:#ff4838 ;">$</span></td>
-              <td scope="col"><?php echo $Location ?></td>
-              <td scope="col"><?php echo $h1 ?>:<?php echo $m1 ?></td>
-              <td scope="col"><?php echo $h2 ?>:<?php echo $m2 ?></td>
-              <td style="margin:auto;"><button onclick='ShowDesc(<?php echo$Description ?> , <?php echo $PlaceName ?>)'  class="btn btn-secondary btn-table" ><i class="fa-solid fa-file-medical"></i></button></td>
-              <td style="margin:auto;"><button onclick='ShowImage("./backendfiles/Placeuploads/IMG-634dc6c9480b75.56991173.png" , <?php echo $PlaceName ?>)' class="btn btn-secondary btn-table" ><i class="fa-regular fa-image"></i></button></td>
-              <td style="width:10%;"><button onclick='EditPlaceForm(<?php echo $PlaceName ; ?>, <?php  echo $PlaceCost; ?>, <?php  echo $Description; ?>, <?php  echo $h1; ?>, <?php  echo $m1; ?>, <?php echo $h2; ?>,<?php  echo $m2; ?> , <?php echo $Explore; ?>)'  class="btn btn-info btn-table"> <i style="color:white ;" class="fa-solid fa-pen"></i></button></td>
-              <td style="width:10%;"><button  class="btn btn-danger btn-table"> <i class="fa-solid fa-trash"></i> </button></td>
-              <!--for backend dev:-> on click for add ,edit ,description and image buttons you can show all inputs in (ReligiousDashboard.js) file-->
-           
-            </tr>
-           
+              $starttime =explode(":",$value[4]);
+              $endtime =explode(":",$value[5]);
+              ?>
+            <tr>
+            <td><a href="./Reservations.php" class="btn btn-warning btn-table" ><i class="fa-solid fa-list-check"></i></a></td>
+            <td scope="col"><?php echo $co+=1 ?></td>
+            <?php if($value[8])
+              {?>
+            <td> <div class="bg-success Explore"></div> </td>
             <?php
-            }
-            ?>
-           <!-- End php loop -->
+              }
+              else
+              { ?>
+            <td> <div class="bg-danger NotExplore"></div> </td>
+            <?php } ?>
+              <td scope="col"><?php echo $value[1] ?></td>
+              <td scope="col"><?php echo  $value[2] ?> <span style="color:#ff4838 ;">$</span></td>
+              <td scope="col"><?php echo $value[3] ?></td>
+              <td scope="col"><?php echo $value[4] ?></td>
+              <td scope="col"><?php echo $value[5]?></td>
+              <td style="margin:auto;"><button onclick='ShowDesc(" <?php echo$value[6] ?> " , " <?php echo $value[1] ?> ")'  class="btn btn-secondary btn-table" ><i class="fa-solid fa-file-medical"></i></button></td>
+              <td style="margin:auto;"><button onclick='ShowImage("./backendfiles/Placeuploads/<?php echo $value[7] ?> "," <?php echo $value[1] ?> ")' class="btn btn-secondary btn-table" ><i class="fa-regular fa-image"></i></button></td>
+              <td style="width:10%;"><button onclick='EditPlaceForm("<?php echo $value[1] ; ?>", "<?php  echo $value[2]; ?>", "<?php  echo $value[6]; ?>", <?php  echo $starttime[0]; ?>, <?php  echo $starttime[1]; ?>, <?php echo $endtime[0]; ?>,<?php  echo $endtime[1]; ?> , <?php echo $value[8]; ?>,"<?php echo $value[3] ?>"," <?php echo $value[0] ?>")'  class="btn btn-info btn-table"> <i style="color:white ;" class="fa-solid fa-pen"></i></button></td>
+              <td style="width:10%;"><a href="./backendfiles/deleteplace.php?id=<?php echo $value[0] ?>&pid=1"  class="btn btn-danger btn-table"> <i class="fa-solid fa-trash"></i> </a></td>
+            </tr>
+            <?php } ?>
           </tbody>
         </table>
       </div>
