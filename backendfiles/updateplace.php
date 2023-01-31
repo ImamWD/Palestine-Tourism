@@ -46,7 +46,7 @@ if(isset($_GET['pid'])) // if open file with GET mathod for to choose place type
 
             //time validition
             $iserr =0;
-            if($h2<$h1)
+            if($h2 < $h1)
             {
                 $iserr = 1;
             }

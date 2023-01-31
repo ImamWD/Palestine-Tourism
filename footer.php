@@ -82,11 +82,11 @@
             </div>
         </div>
         <div class="bottom-footer">
-            <p class="copyright" style="color:white ;">Copyright 2021 TourXPro | Design By Egens Lab</p>
+            <p class="copyright" style="color:white ;">Copyright 2022 Palestine Tourism </p>
             <div class="footer-logo">
                 <a style="color:white ; display: inline-block;" class="navbar-brand" href="index.php"><img src="images/home-images/airplane-57-48.ico" style="width:50px" /> Palestine <span style="color:#ff4838 ;">Tourism</span></a>
             </div>
-            <p class="bottom-footer-para" style="color:white ;">Terms & Condition <span class="vir-line"> | </span>Privacy Policy</p>
+            <p class="bottom-footer-para" style="color:white ;">Design By <span class="vir-line"> | </span> Imam Ibrahim</p>
         </div>
     </footer>
     <script src="javascript/navbar.js"></script>

@@ -1,6 +1,6 @@
 body
 {
-    background-color:#FAFAFA ;
+    background-color:#F0F0F0 ;
 }
 /*____________var__________*/
 :root
@@ -156,6 +156,7 @@ body
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: white;
 }
 .time
 {
@@ -178,7 +179,6 @@ body
     font-size: 15px;
     font-weight: 500;
     transition: all .6s;
-    margin-right: 40px;
 }
 .book-btn:hover
 {

@@ -68,6 +68,11 @@
   if(isset($_SESSION['customer']))
   {
     ?>
+
+
+
+
+  <!-- Explor slider --> 
   <section >
     <h2 class="container" style="margin-top:50px; margin-bottom: 50px;">Explore Top Destinations</h2>
     
@@ -75,139 +80,72 @@
         <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <?php 
+              include "./backendfiles/conniction.php";
+              $query = "SELECT * FROM places WHERE explore = 1";
+              $result = mysqli_query($conn , $query);
+              $Arr = mysqli_fetch_all($result); 
+              $counter1 = 0;
+              $counter2 =1;
+              foreach($Arr as $v)
+              {
+                if($counter1%3 == 0 && $counter1 != 0)
+                {
+              ?>
+                   <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="<?php echo $counter2; ?>" aria-label="Slide <?php echo $counter2; ?>"></button>
+          <?php 
+          $counter2++;
+        }
+        $counter1++;
+        } ?>
+        
         </div>
           <div class="carousel-inner">
             <div class="carousel-item active">
               <div class="row" style="justify-content: space-between;">
+              <?php 
+              $counter =0;
+              foreach($Arr as $value)
+              {
+                if($counter % 3 == 0 && $counter != 0)
+                {
+                  ?>
+                  <div class="carousel-item ">
+                  <div class="row" style="justify-content: space-between;">
+                  <?php
+                }
+              ?>
                 <div  class="Top-Dest col-3">
-                    <img style="width:100%" src="images/home-images/p-alpha1.png" />
+                    <img style="width:100%" src="./backendfiles/Placeuploads/<?php echo $value[7] ?>" />
                     <div class="time">
-                        <i class="fa-regular fa-clock"></i> <span>8:00</span> to <span>22:30</span>
+                        <i class="fa-regular fa-clock"></i> <span><?php echo $value[4] ?> </span> to <span><?php echo $value[5] ?></span>
                     </div>
-                    <h5 calss="place-name">Etiam placerat dictum consequat an Pellentesque habitant morbi.</h5>
+                    <h5 calss="place-name"><?php echo $value[1] ?></h5>
                     
-                    <h6 class="Place-Type"><span style="color:#ff4838 ;">Type: </span> Leisure</h6>
-                    <h6 class="Place-Type"><span style="color:#ff4838 ;">Location: </span> Nablus</h6>
+                    <h6 class="Place-Type"><span style="color:#ff4838 ;">Type: </span> <?php echo $value[9] ?></h6>
+                    <h6 class="Place-Type"><span style="color:#ff4838 ;">Location: </span> <?php echo $value[3] ?></h6>
         
-                    <a href="./BookNow.php" class="btn book-btn">BOOK NOW <i class="fa-solid fa-arrow-right"></i></a>
-                    <h5><span class="price">$79.00</span> per person</h5>
+                    <a href="./BookNow.php?placeId=<?php echo $value[0] ?>" class="btn book-btn">BOOK NOW <i class="fa-solid fa-arrow-right"></i></a>
+                    <h5><span class="price">$<?php echo $value[2] ?> </span> per person</h5>
                 </div>
-        
-                <div  class="Top-Dest col-3">
-                    <img style="width:100%" src="images/home-images/p-alpha2.png" />
-                    <div class="time">
-                        <i class="fa-regular fa-clock"></i> <span>10:00</span> to <span>20:00</span>
-                    </div>
-                    <h5>varius condimentum consequat frin Aenean pretium risus eu.</h5>
-                    <h6 class="Place-Type"><span style="color:#ff4838 ;">Type: </span> Leisure</h6>
-                    <h6 class="Place-Type"><span style="color:#ff4838 ;">Location: </span> Nablus</h6>
-        
-                    <a href="./BookNow.php"  class="btn book-btn">BOOK NOW <i class="fa-solid fa-arrow-right"></i></a>
-                    <h5><span class="price">$259.00</span> per person</h5>
-                </div>
-                
-                <div  class="Top-Dest col-3">
-                  <img style="width:100%" src="images/home-images/p-alpha4.png" />
-                  <div class="time">
-                      <i class="fa-regular fa-clock"></i> <span>8:00</span> to <span>24:00</span>
+                <?php
+              $counter++;
+              if($counter%3 == 0 )
+                {
+                  ?>
                   </div>
-                  <h5>Praesent sed elit mi. In risus nullaam efficitur non elementum.</h5>
-                  <h6 class="Place-Type"><span style="color:#ff4838 ;">Type: </span> Leisure</h6>
-                  <h6 class="Place-Type"><span style="color:#ff4838 ;">Location: </span> Nablus</h6>
-      
-                  <a href="./BookNow.php" class="btn book-btn">BOOK NOW <i class="fa-solid fa-arrow-right"></i></a>
-                  <h5><span class="price">$199.00</span> per person</h5>
-              </div>
-            </div>
-            </div>
-            <div class="carousel-item">
-              <div class="row" style="justify-content: space-between;">
-               
-                <div  class="Top-Dest col-3">
-                    <img style="width:100%" src="images/home-images/p-alpha2.png" />
-                    <div class="time">
-                        <i class="fa-regular fa-clock"></i> <span>10:00</span> to <span>20:00</span>
-                    </div>
-                    <h5>varius condimentum consequat frin Aenean pretium risus eu.</h5>
-                    <h6 class="Place-Type"><span style="color:#ff4838 ;">Type: </span> Leisure</h6>
-                    <h6 class="Place-Type"><span style="color:#ff4838 ;">Location: </span> Nablus</h6>
-        
-                    <a href="./BookNow.php" class="btn book-btn">BOOK NOW <i class="fa-solid fa-arrow-right"></i></a>
-                    <h5><span class="price">$259.00</span> per person</h5>
-                </div>
-                <div  class="Top-Dest col-3">
-                    <img style="width:100%" src="images/home-images/p-alpha3.png" />
-                    <div class="time">
-                        <i class="fa-regular fa-clock"></i> <span>8:00</span> to <span>22:30</span>
-                    </div>
-                    <h5>Praesent sed elit mi. In risus nullaam efficitur non elementum.</h5>
-                    <h6 class="Place-Type"><span style="color:#ff4838 ;">Type: </span> Leisure</h6>
-                    <h6 class="Place-Type"><span style="color:#ff4838 ;">Location: </span> Nablus</h6>
-        
-                    <a href="./BookNow.php" class="btn book-btn">BOOK NOW <i class="fa-solid fa-arrow-right"></i></a>
-                    <h5><span class="price">$179.00</span> per person</h5>
-                </div>
-    
-                <div  class="Top-Dest col-3">
-                  <img style="width:100%" src="images/home-images/p-alpha4.png" />
-                  <div class="time">
-                      <i class="fa-regular fa-clock"></i> <span>8:00</span> to <span>24:00</span>
                   </div>
-                  <h5>Praesent sed elit mi. In risus nullaam efficitur non elementum.</h5>
-                  <h6 class="Place-Type"><span style="color:#ff4838 ;">Type: </span> Leisure</h6>
-                  <h6 class="Place-Type"><span style="color:#ff4838 ;">Location: </span> Nablus</h6>
-      
-                  <a href="./BookNow.php" class="btn book-btn">BOOK NOW <i class="fa-solid fa-arrow-right"></i></a>
-                  <h5><span class="price">$199.00</span> per person</h5>
+                  <?php
+                }
+
+              }
+              if($counter%3 != 0)
+              {
+              ?>
               </div>
-            </div>
-            </div>
-            <div class="carousel-item">
-              <div class="row" style="justify-content: space-between;">
-                <div  class="Top-Dest col-3">
-                    <img style="width:100%" src="images/home-images/p-alpha1.png" />
-                    <div class="time">
-                        <i class="fa-regular fa-clock"></i> <span>8:00</span> to <span>22:30</span>
-                    </div>
-                    <h5 calss="place-name">Etiam placerat dictum consequat an Pellentesque habitant morbi.</h5>
-                    
-                    <h6 class="Place-Type"><span style="color:#ff4838 ;">Type: </span> Leisure</h6>
-                    <h6 class="Place-Type"><span style="color:#ff4838 ;">Location: </span> Nablus</h6>
-        
-                    <a href="./BookNow.php" class="btn book-btn">BOOK NOW <i class="fa-solid fa-arrow-right"></i></a>
-                    <h5><span class="price">$79.00</span> per person</h5>
-                </div>
-        
-                <div  class="Top-Dest col-3">
-                    <img style="width:100%" src="images/home-images/p-alpha3.png" />
-                    <div class="time">
-                        <i class="fa-regular fa-clock"></i> <span>8:00</span> to <span>22:30</span>
-                    </div>
-                    <h5>Praesent sed elit mi. In risus nullaam efficitur non elementum.</h5>
-                    <h6 class="Place-Type"><span style="color:#ff4838 ;">Type: </span> Leisure</h6>
-                    <h6 class="Place-Type"><span style="color:#ff4838 ;">Location: </span> Nablus</h6>
-        
-                    <a href="./BookNow.php" class="btn book-btn">BOOK NOW <i class="fa-solid fa-arrow-right"></i></a>
-                    <h5><span class="price">$179.00</span> per person</h5>
-                </div>
-    
-                <div  class="Top-Dest col-3">
-                  <img style="width:100%" src="images/home-images/p-alpha4.png" />
-                  <div class="time">
-                      <i class="fa-regular fa-clock"></i> <span>8:00</span> to <span>24:00</span>
-                  </div>
-                  <h5>Praesent sed elit mi. In risus nullaam efficitur non elementum.</h5>
-                  <h6 class="Place-Type"><span style="color:#ff4838 ;">Type: </span> Leisure</h6>
-                  <h6 class="Place-Type"><span style="color:#ff4838 ;">Location: </span> Nablus</h6>
-      
-                  <a href="./BookNow.php" class="btn book-btn">BOOK NOW <i class="fa-solid fa-arrow-right"></i></a>
-                  <h5><span class="price">$199.00</span> per person</h5>
               </div>
-            </div>
-            </div>
-          </div>
+          <?php } ?>
+                </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
@@ -221,49 +159,36 @@
     
   
     </section>
-
-  <section >
+  <section > <!-- For you div -->
     <h2 class="container" style="margin-top:50px">For You</h2>
     <div class="Top-Dests container">
-        <div class="row" style="justify-content: space-between;">
+        <div class="row w-100" style="justify-content: space-between;">
+        <?php
+        // get user location because display places for this location
+        $usrquery = "SELECT location FROM customers WHERE id = '". $_SESSION['customer'] ."';";
+        $result = mysqli_query($conn , $usrquery);
+        $location = mysqli_fetch_all($result);
+        // display all places for this location 
+        $placequery = "SELECT * FROM places WHERE location = '". $location[0][0] ."';";
+        $placeResult = mysqli_query($conn,$placequery);
+        $placeArr = mysqli_fetch_all($placeResult);
+        foreach($placeArr as $value)
+        {
+        ?>
         <div  class="Top-Dest col-4">
-            <img style="width:100%" src="images/home-images/p-alpha1.png" />
+            <img style="width:100%" src="./backendfiles/Placeuploads/<?php echo $value[7] ?>" />
             <div class="time">
-                <i class="fa-regular fa-clock"></i> <span>8:00</span> to <span>22:30</span>
+                <i class="fa-regular fa-clock"></i> <span> <?php echo $value[4] ?> </span> to <span><?php echo $value[5] ?></span>
             </div>
-            <h5 calss="place-name">Etiam placerat dictum consequat an Pellentesque habitant morbi.</h5>
+            <h5 calss="place-name"><?php echo $value[1] ?></h5>
             
-            <h6 class="Place-Type"><span style="color:#ff4838 ;">Type: </span> Leisure</h6>
-            <h6 class="Place-Type"><span style="color:#ff4838 ;">Location: </span> Nablus</h6>
+            <h6 class="Place-Type"><span style="color:#ff4838 ;">Type: </span> <?php echo $value[9] ?></h6>
+            <h6 class="Place-Type"><span style="color:#ff4838 ;">Location: </span> <?php echo $value[3] ?></h6>
 
-            <a href="./BookNow.php" class="btn book-btn">BOOK NOW <i class="fa-solid fa-arrow-right"></i></a>
-            <h5><span class="price">$79.00</span> per person</h5>
+            <a href="./BookNow.php?placeId=<?php echo $value[0] ?>" class="btn book-btn">BOOK NOW <i class="fa-solid fa-arrow-right"></i></a>
+            <h5><span class="price">$<?php echo $value[2] ?></span> per person</h5>
         </div>
-
-        <div  class="Top-Dest col-4">
-            <img style="width:100%" src="images/home-images/p-alpha2.png" />
-            <div class="time">
-                <i class="fa-regular fa-clock"></i> <span>10:00</span> to <span>20:00</span>
-            </div>
-            <h5>varius condimentum consequat frin Aenean pretium risus eu.</h5>
-            <h6 class="Place-Type"><span style="color:#ff4838 ;">Type: </span> Leisure</h6>
-            <h6 class="Place-Type"><span style="color:#ff4838 ;">Location: </span> Nablus</h6>
-
-            <a href="./BookNow.php"class="btn book-btn">BOOK NOW <i class="fa-solid fa-arrow-right"></i></a>
-            <h5><span class="price">$259.00</span> per person</h5>
-        </div>
-        <div  class="Top-Dest col-4">
-            <img style="width:100%" src="images/home-images/p-alpha3.png" />
-            <div class="time">
-                <i class="fa-regular fa-clock"></i> <span>8:00</span> to <span>22:30</span>
-            </div>
-            <h5>Praesent sed elit mi. In risus nullaam efficitur non elementum.</h5>
-            <h6 class="Place-Type"><span style="color:#ff4838 ;">Type: </span> Leisure</h6>
-            <h6 class="Place-Type"><span style="color:#ff4838 ;">Location: </span> Nablus</h6>
-
-            <a href="./BookNow.php" class="btn book-btn">BOOK NOW <i class="fa-solid fa-arrow-right"></i></a>
-            <h5><span class="price">$179.00</span> per person</h5>
-        </div>
+      <?php }?>
     </div>
     </div>
   </section>

@@ -11,12 +11,13 @@ body
 }
 .BOOK-header
 {
-    display: flex;
+    width: 80%;
+    margin: auto;
     padding-top: 100px;
 }
 .left-header
 {
-    width: 60%;
+    width: 100%;
 }
 .Place-image
 {
@@ -24,13 +25,12 @@ body
 }
 .right-header
 {
-    width: 40%;
+    width: 100%;
 }
 .Name-Location
 {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 50px;
 }
 .Place-name
 {
@@ -120,5 +120,9 @@ body
     .Recervation
     {
         width: 100% !important;
+    }
+    .Name-Location
+    {
+        flex-direction: column !important;
     }
 }

@@ -30,47 +30,112 @@ if(!isset($_SESSION['customer']))
             <input type="submit" class="btn search-submit" value="Search" name="sib"/>
           </form>
         </div>
+
         <table class="table">
           <thead>
             <tr>
-            <th scope="col">#</th>
-              <th scope="col">My Name</th>
+            <th scope="col">Status</th>
               <th scope="col">Place</th>
               <th scope="col">Type</th>
-              <th scope="col">Persons</th>
+              <th scope="col">NOP</th>
+              <th scope="col">Start</th>
+              <th scope="col">End</th>
+              <th scope="col">Date</th>
               <th scope="col">Total</th>
-              <th scope="col">Ticket</th>
               <th scope="col">Image</th>
+              <th scope="col">Events</th>
             </tr>
           </thead>
           <tbody>
            
             <?php 
-             $CustomerName = "Ahmad Tamem";
-             $PlaceName = "Abbbb";
-             $PlaceType = "Leisure";
-             $NumOfPerson = 5;
-             $ImagePath = "./images/home-images/p-alpha1.png";
-             $TotalSalary = 500;
-
+            // include conniction page
+             include "./backendfiles/conniction.php";
+             // sql query , get data 
+             $query = "SELECT places.name ,
+             places.Type , 
+             customersplaces.NumOP ,
+             customersplaces.Starttime ,
+             customersplaces.Endtime ,
+             customersplaces.Cerated ,
+             places.cost ,
+             places.imageurl ,
+             customersplaces.visited FROM customersplaces 
+             INNER JOIN places ON places.id = customersplaces.Place_Id 
+             WHERE customersplaces.Customer_Id = ".$_SESSION['customer']." ORDER BY  customersplaces.Cerated DESC, customersplaces.visited ;";
+             // request at the server
+             $Result = mysqli_query($conn,$query);
+             //for to result values in matrix
+             $DATA = mysqli_fetch_all($Result);
              ?>
             <!--php for loop-->
             <?php
-           
-            $Count = 10;
-            for($i =0;$i < $Count ; $i = $i+1)
+            $i=0;
+            foreach($DATA as $val)
             {
+              // compare to current date 
+             $dateTimestamp1 = strtotime($val[5]);
+             $date2 =  date("Y-m-d");
+             $dateTimestamp2 = strtotime($date2);
+
+             //select background color for to visited , not visited , wait and leat.
+             if($dateTimestamp1 < $dateTimestamp2 && $val[8] == 0)
+             {
+            ?>
+            <tr style=" background-color:#dc354555">
+            <td  scope="col" style="color:red; font-weight:500; " >Late </td>
+            <?php 
+             }
+             else if($val[8] == 1 && $dateTimestamp1 < $dateTimestamp2)
+             { ?>
+              <tr style="background-color:#1a855355">
+              <td  scope="col" style="color:green; font-weight:500; " >Visited </td>
+  
+            <?php 
+             } 
+             else
+             { ?>
+             <tr>
+             <td  scope="col" style=" font-weight:500; " >Waiting </td>
+             <?php 
+             }// end background color for visited ,not visited ,wait and leat
+             ?>
+              <td scope="col"><?php echo  $val[0]?> </td>
+             
+              <td scope="col"><?php echo $val[1] ?></td>
+              <td scope="col"><?php echo $val[2] ?></td>
+              <?php
+              $Start = explode(':' , $val[3]);
+              $End = explode(':' , $val[4]);
               ?>
-            <tr id="<?php echo $i ?>">
-              <td  scope="col"><?php echo $i+1 ?></td>
-              <td scope="col"><?php echo $CustomerName ?></td>
-              <td scope="col"><?php echo  $PlaceName ?> </td>
-              <td scope="col"><?php echo $PlaceType ?></td>
-              <td scope="col"><?php echo $NumOfPerson ?></td>
-              <td scope="col"><?php echo $TotalSalary ?> <span style="color:#ff4838 ;">$</span></td>
-              <td style="width:10%;"><a href="./Ticket.php"  class="btn btn-warning btn-table"> <i class="fa-solid fa-table-list"></i> </a></td>
-              <td scope="col"> <img src="<?php echo  $ImagePath ?>" style="width:50%;;" /></td>
-            </tr>
+              <td scope="col"><?php echo $Start[0].":".$Start[1] ?></td>
+              <td scope="col"><?php echo $End[0].":".$End[1] ?></td>
+              <td scope="col"><?php echo $val[5] ?></td>
+
+              <td scope="col"><?php echo $val[6]*$val[2] ?> <span style="color:#ff4838 ;">$</span></td>
+             
+              <?php $impurl = "./backendfiles/Placeuploads/".$val[7] ?>
+              <td style="width:10%;"><button title="Place Image" onclick="showimg('<?php echo $impurl ?>' )" class="btn btn-success btn-table"><i class="fa-regular fa-image"></i> </button></td>
+            
+             <?php
+              if($dateTimestamp1 > $dateTimestamp2)
+              {
+              ?>
+              <td style="width:10%;">
+              <a title="Print Ticket" href="./Ticket.php"  class="btn btn-warning btn-table"><i class="fa-solid fa-check" style="color:white" ></i> </a>
+              <a title="Cancel Order" href="./Ticket.php"  class="btn btn-danger btn-table"> <i class="fa-solid fa-xmark"></i> </a> 
+              </td>
+              <?php
+              }
+              else
+              { ?>
+              <td style="width:10%;">
+                  <a title="Reuse Order" href="./Ticket.php"  class="btn btn-secondary btn-table"> <i class="fa-solid fa-recycle"></i> </a>
+                  <a title="Delete Order" href="./Ticket.php"  class="btn btn-danger btn-table"> <i class="fa-solid fa-trash"></i> </a>
+                </td>
+              <?php
+              }?>
+              </tr>
             <?php
             }
             ?>

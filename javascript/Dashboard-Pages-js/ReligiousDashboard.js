@@ -88,7 +88,7 @@ let m2 =0;
 function NameValidation(val)
 {
     let NameError = document.getElementById('NameError');
-    let condition = /^[A-Z][a-z ' ']{2,16}$/;
+    let condition = /^[A-Z][a-z ' ']{2,50}$/;
     if(val.value == "")
     {
         NameError.innerHTML = "Place name is empty";
@@ -103,7 +103,7 @@ function NameValidation(val)
         val.classList.remove("is-valid");
         Name =0;
     }
-    else if( val.value.length >15)
+    else if( val.value.length >50)
     {
         NameError.innerHTML = "Place name length must be less than 15  char";
         val.classList.add("is-invalid");
@@ -187,7 +187,7 @@ function hValidation(val,flag)
 {
     if(flag == 0) // Start time
     {
-        if(val.value < 0 || val.value>=24 || val.value == "")
+        if(val.value < 0 || val.value>24 || val.value == "")
         {
             val.classList.add("is-invalid");
             val.classList.remove("is-valid");
@@ -202,7 +202,7 @@ function hValidation(val,flag)
     }
     else // Close time
     {
-        if(val.value < 0 || val.value>=24 || val.value == "")
+        if(val.value < 0 || val.value>24 || val.value == "")
         {
             val.classList.add("is-invalid");
             val.classList.remove("is-valid");
